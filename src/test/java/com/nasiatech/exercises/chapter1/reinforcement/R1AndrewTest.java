@@ -47,12 +47,34 @@ class R1AndrewTest {
 
     @Test
     public void testCountString(){
-        assertEquals(2, testAll.countVowels("Andrew"));
+        assertEquals(2, testAll.R8countVowels("Andrew"));
     }
 
     @Test
     public void testremovePunctuation(){
         StringBuilder s = new StringBuilder ("This is , Hello, world");
-        assertEquals(true, "This is  Hello world".equals(testAll.removePunk(s).toString()));
+        assertEquals(true, "This is  Hello world".equals(testAll.R9removePunk(s).toString()));
+    }
+
+    @Test
+    public void testFlower(){
+        Flower t = new Flower("Rose", 11, 275);
+        assertEquals("Rose", t.getFlowername());
+        assertEquals(11, t.getNumOfPetalss());
+        assertEquals(275, t.getPrize());
+
+        t.setFlowername("Hibiscus");
+        assertEquals("Hibiscus", t.getFlowername());
+
+
+    }
+
+    @Test
+    public void testupdateCardLimit(){
+        CreditCard card = new CreditCard("Andrew","UBA","Savings",100,10000);
+//        int value = card.updateCardLimit(1000);
+//        assertTrue(value == 1100);
+        assertEquals(500, card.updateCardLimit(400));
+        assertEquals(9500, card.makePayment(500));
     }
 }
